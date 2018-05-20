@@ -1,0 +1,81 @@
+@font-face {
+    font-family: "FA";
+    src: url("../font/fa900.woff2") format("woff2");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "FA";
+    src: url("../font/fa400.woff2") format("woff2");
+    font-weight: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.stars {
+    width: 145px;
+    font-size: 0;
+    height: 30px;
+}
+
+.stars input {
+    display: none;
+}
+
+.stars label {
+    float: right;
+    font-family: "FA regular";
+    margin-top: 7px;
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    position: relative;
+}
+
+.stars label::before {
+    cursor: pointer;
+    content: "\f089";
+    font-family: "FA";
+    font-size: 19px;
+    position: absolute;
+    color: orange;
+    width: 10px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.stars label:nth-of-type(2n+1)::before {
+    transform: rotateY(180deg);
+}
+
+.stars label:nth-of-type(2n) {
+    margin-left: 10px;
+}
+
+.stars label:last-of-type {
+    margin-left: 0;
+}
+
+.stars label:nth-of-type(2n+3)::after {
+    content: "";
+    cursor: pointer;
+    width: 10px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+    top: 0;
+}
+
+.stars input:checked~label::before {
+    font-weight: bold;
+    color: orange;
+}
+
+.stars input+label:hover::before,
+.stars label:hover~label::before {
+    color: rgb(255, 198, 19);
+    font-weight: bold;
+}
